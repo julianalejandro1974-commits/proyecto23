@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClimaAhora | Pronóstico del tiempo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div>
+        <p class="eyebrow">PRONÓSTICO METEOROLÓGICO</p>
+        <h1>ClimaAhora</h1>
+        <p class="subtitle">Consulta el clima actual y las próximas horas.</p>
+      </div>
+      <div class="logo" aria-hidden="true">☀</div>
+    </header>
+
+    <form id="searchForm" class="search">
+      <label class="sr-only" for="locationInput">Ubicación</label>
+      <input id="locationInput" type="text" placeholder="Escribe una ciudad (ej. Sogamoso, Colombia)" value="Sogamoso, Colombia" required>
+      <button type="submit">Consultar</button>
+      <button type="button" id="refreshBtn" class="refresh" title="Actualizar pronóstico" aria-label="Actualizar pronóstico">↻</button>
+    </form>
+
+    <p id="status" class="status" role="status">Ingresa una ubicación para consultar el clima.</p>
+
+    <section id="currentCard" class="current-card hidden">
+      <div class="current-main">
+        <div>
+          <p id="placeName" class="place-name"></p>
+          <p id="currentDate" class="muted"></p>
+          <div class="temperature"><span id="temperature">--</span><span class="degree">°C</span></div>
+          <p id="condition" class="condition">--</p>
+        </div>
+        <div id="weatherIcon" class="weather-icon" aria-hidden="true">🌤️</div>
+      </div>
+      <div class="details">
+        <div class="detail"><span>💨 Viento</span><strong id="wind">--</strong></div>
+        <div class="detail"><span>🌧️ Prob. de lluvia</span><strong id="rain">--</strong></div>
+        <div class="detail"><span>💧 Humedad</span><strong id="humidity">--</strong></div>
+      </div>
+    </section>
+
+    <section id="hourlySection" class="forecast hidden">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">EVOLUCIÓN DEL CLIMA</p>
+          <h2>Pronóstico por horas</h2>
+        </div>
+        <span class="range-label">24 horas antes y después</span>
+      </div>
+      <div class="hourly-grid">
+        <div>
+          <h3>Últimas 24 horas</h3>
+          <div id="pastHours" class="hours-list"></div>
+        </div>
+        <div>
+          <h3>Próximas 24 horas</h3>
+          <div id="futureHours" class="hours-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Datos meteorológicos proporcionados por Visual Crossing Weather.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
